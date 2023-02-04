@@ -10,10 +10,38 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+title = "renys.dev"
+generate_feed = true
+minify_html = true
+
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = false
+highlight_code = true
+highlight_theme = "ayu-dark"
 
 [extra]
-# Put all your custom variables here
+toc = true
+use_cdn = false
+favicon = "/icon/favicon.png"
+theme = "auto"  
+stylesheets = [ "colours.css" ]    
+mathjax = true
+mathjax_dollar_inline_enable = true
+
+menu = [
+    { name = "/posts", url = "/posts", weight = 1 },
+    { name = "/projects", url = "/projects", weight = 2 },
+    { name = "/about", url = "/about", weight = 3 },
+]
+
+socials = [
+    { name = "linkedin", url = "https://linkedin.com/in/fenreese", icon = "linkedin" },
+    { name = "github", url = "https://github.com/fenreese/", icon = "github" },
+    { name = "lastfm", url = "https://last.fm/user/i-dle", icon = "lastfm" },
+]
+
+custom_css = []
+
+[extra.analytics]
+enabled = true
+goatcounter_user = "your_user"
+goatcounter_host = "example.com"    # default= goatcounter.com
