@@ -11,7 +11,7 @@ compile_sass = true
 build_search_index = false
 
 title = "renys.dev"
-generate_feed = true
+generate_feeds = true
 minify_html = true
 
 [markdown]
@@ -34,9 +34,8 @@ menu = [
 ]
 
 socials = [
-    { name = "linkedin", url = "https://linkedin.com/in/fenreese", icon = "linkedin" },
+    { name = "linkedin", url = "https://linkedin.com/in/reesedominguez", icon = "linkedin" },
     { name = "github", url = "https://github.com/fenreese/", icon = "github" },
-    { name = "lastfm", url = "https://last.fm/user/i-dle", icon = "lastfm" },
 ]
 
 custom_css = []

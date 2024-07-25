@@ -1,7 +1,7 @@
 +++
 title = "Interview Simulator"
 description = "An interview practice tool. Overall winner of the SheHacks+ 7 hackathon!"
-weight = 1
+weight = 2
 
 [extra]
 local_image = "/projects/interviewsim.jpeg"
