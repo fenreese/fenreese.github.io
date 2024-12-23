@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>renys.dev</title>
+    <link rel="self" type="application/atom+xml" href="https://fenreese.github.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://fenreese.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-04-01T00:00:00+00:00</updated>
+    <id>https://fenreese.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>A Tour of My Listening History</title>
+        <published>2024-04-01T00:00:00+00:00</published>
+        <updated>2024-04-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://fenreese.github.io/posts/lfm-analysis/"/>
+        <id>https://fenreese.github.io/posts/lfm-analysis/</id>
+        
+        <content type="html" xml:base="https://fenreese.github.io/posts/lfm-analysis/">&lt;h1 id=&quot;disclaimer&quot;&gt;Disclaimer&lt;&#x2F;h1&gt;
+&lt;p&gt;This was a major assignment for the course CSCI4210U (Information Visualization). I think I might have done too much work on this, but I still enjoy having it up as an archive of the listening habits I had before I started a personal project to listen to more music.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;terminology&quot;&gt;Terminology&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;last.fm&lt;&#x2F;strong&gt;: A music tracker site that creates a profile of your music taste over a period of time, keeping records of all the songs you listen to (as long as you link your music player of choice to it). &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Last.fm&quot;&gt;Wikipedia article&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;MusicBrainz&lt;&#x2F;strong&gt;: An online, open source database of music. Keeps track of artists, their songs, and relationships between them (yet this isn&#x27;t entirely up to date). Also has information such as the artist&#x27;s country and every physical&#x2F;digital release they have. &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;MusicBrainz&quot;&gt;Wikipedia article&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Scrobble&lt;&#x2F;strong&gt;: A record of a listen of a song. Includes all the song&#x27;s metadata, as well as the time the song was listened.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;Music has been a big part of my life. My mother told me that she would play music for me before I was even born, and every day ever since has not been without at least one song playing*. I thought I would want to keep track of how my taste and habits change over time, as I get into new rhythm games and learn about new artists from my friends. I would also like to see how much my life has changed just entirely based on the music I listened to at certain times.&lt;&#x2F;p&gt;
+&lt;p&gt;To do this, I have decided to take all of my data from my &lt;a href=&quot;https:&#x2F;&#x2F;www.last.fm&#x2F;user&#x2F;emperte&quot;&gt;last.fm profile&lt;&#x2F;a&gt; via an external site that converts my listening history to a .csv file (&lt;a href=&quot;https:&#x2F;&#x2F;lastfm.ghan.nl&#x2F;export&#x2F;&quot;&gt;https:&#x2F;&#x2F;lastfm.ghan.nl&#x2F;export&#x2F;&lt;&#x2F;a&gt;). For any auxiliary information (such as artist country), I took from &lt;a href=&quot;https:&#x2F;&#x2F;musicbrainz.org&#x2F;&quot;&gt;MusicBrainz&#x27;s database&lt;&#x2F;a&gt; and made more API requests to Last.fm for artist tags. I stitched the auxiliary information together on Python, the process of which can be seen in the &lt;code&gt;python_data_wrangling&lt;&#x2F;code&gt; folder of &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;fenreese&#x2F;CSCI4210-assignment&#x2F;tree&#x2F;main&#x2F;python_data_wrangling&quot;&gt;this repo&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This data may not be the most accurate, as it only has records of listening habits from 2017-01-02 13:17:31 GMT-5 to 2024-03-27 12:55:50 GMT-4. (As I type this, I am listening to music...)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;questions-to-explore&quot;&gt;Questions To Explore&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What genres, or in Last.fm&#x27;s case, &quot;tags&quot; do I listen to the most?
+&lt;ul&gt;
+&lt;li&gt;When have I listened to each genre&#x2F;tag the most throughout my listening history?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;When do I tend to listen to music the most?&lt;&#x2F;li&gt;
+&lt;li&gt;Which country&#x27;s music have I listened to the most?&lt;&#x2F;li&gt;
+&lt;li&gt;What are my top 10 artists and albums?
+&lt;ul&gt;
+&lt;li&gt;Is there a reason why these artists&#x2F;albums are in my top 10?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;These questions will be explored in reverse order. I would like to thank and give credits to these websites for inspiration on these graphs:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hot One Hundo&#x27;s blog posts on last.fm visualization (&lt;a href=&quot;https:&#x2F;&#x2F;hotonehundo.wordpress.com&#x2F;2018&#x2F;01&#x2F;11&#x2F;last-fm-visualization-tools&#x2F;&quot;&gt;here&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hotonehundo.wordpress.com&#x2F;2018&#x2F;02&#x2F;10&#x2F;last-fm-advanced-scrobbling-statistics&#x2F;&quot;&gt;here&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;scatterfm.markhansen.co.nz&#x2F;graph.html#&#x2F;user&#x2F;emperte&quot;&gt;Scatter.FM&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mold.github.io&#x2F;explr&#x2F;?username=emperte&quot;&gt;Explr.fm&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;the-data-itself&quot;&gt;The Data Itself&lt;&#x2F;h2&gt;
+&lt;p&gt;Here is an explanation of the columns of the data I&#x27;m working with.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Name&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;uts&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The Unix epoch timestamp (how many seconds since 1970-01-01 00:00:00 UTC) of when the song was scrobbled.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;utc_time&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The human-readable time of when the song was scrobbled.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;artist&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The artist of the song.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;artist_mbid&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The MusicBrainz ID of the artist.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;album&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The album the song belongs in.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;album_mbid&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The MusicBrainz ID of the album (referred to in MB as &quot;release&quot;)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;track&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The name of the song.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;track_mbid&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The MusicBrainz ID of the song (referred to in MB as &quot;track&quot;)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h1 id=&quot;the-charts&quot;&gt;The Charts&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;top-artists&quot;&gt;Top Artists&lt;&#x2F;h2&gt;
+&lt;p&gt;I feel like I&#x27;ll be surprised by this data, as I feel like I&#x27;ve changed a lot over the years.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;fenreese.github.io&#x2F;posts&#x2F;lfm-analysis&#x2F;topartists.png&quot; alt=&quot;A bar chart of my top 10 listened to artists.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Seeing all of these artists has helped me realize that I tend to go through phases where I listen to a lot of one artist, get burnt out of listening to them, and then never listen to them again. (I believe out of these 10, the only artists I still regularly listen to are aespa, (G)I-DLE, PSYQUI, and tricot.) To see if this is true, I&#x27;ll plot a line graph of listens of my Top 10 artists per month.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;fenreese.github.io&#x2F;posts&#x2F;lfm-analysis&#x2F;top10freq.png&quot; alt=&quot;A line chart showing the frequency of my listens to each of my top 10 artists over the years.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;As I thought, there are spikes in my listening activity, backing up my hypothesis. I can list some important spikes:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tyler, the Creator: early 2018 (figuring myself out, listened to nothing but &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Flower_Boy&quot;&gt;Flower Boy&lt;&#x2F;a&gt;. I&#x27;m nonbinary by the way.)&lt;&#x2F;li&gt;
+&lt;li&gt;Mac Miller: late 2018 (he died September 7, 2018; rest in peace) and early 2020 (release of &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Circles_(Mac_Miller_album)&quot;&gt;Circles&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Vulfpeck: late 2019 (got together with my ex, who got me into the band)&lt;&#x2F;li&gt;
+&lt;li&gt;Thundercat: early 2020 (release of &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;It_Is_What_It_Is_(Thundercat_album)&quot;&gt;It Is What It Is&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;aespa: late 2021 - early 2022 (broke up with my ex, release of the &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Savage_(EP)&quot;&gt;Savage mini-album&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Doja Cat: mid 2022 (Kiss Me More was a good song)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;top-10-albums&quot;&gt;Top 10 Albums&lt;&#x2F;h2&gt;
+&lt;p&gt;Out of sheer curiosity, I wondered if all of my top 10 listened albums were from my top 10 artists.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;fenreese.github.io&#x2F;posts&#x2F;lfm-analysis&#x2F;topalbums.png&quot; alt=&quot;A bar chart with my top 10 albums.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Only two albums out of 10 were not from a top 10 artist of mine, and only half of my top 10 artists made an album that was in my top 10 albums. I personally think &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Reality_in_Black&quot;&gt;reality in BLACK&lt;&#x2F;a&gt; is Mamamoo&#x27;s best album (stream &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=KhTeiaCezwM&quot;&gt;HIP&lt;&#x2F;a&gt;). I think U.U.F.O. made it in because the album has &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=LnkfOVHkVfo&quot;&gt;one of the longest song titles known to myself&lt;&#x2F;a&gt;, and I like putting horribly long song names in my listening history.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;top-countries&quot;&gt;Top Countries&lt;&#x2F;h2&gt;
+&lt;p&gt;I wanted to know what countries the music I listened to came from, and expected to have a lot of scrobbles of songs of artists from United States, Korea, and Japan.&lt;&#x2F;p&gt;
+&lt;p&gt;As I was gathering this information, I noticed that either the MusicBrainz database is lacking in country information for a lot of artists, or my scrobble history database is lacking in MusicBrainz IDs for a lot of artists. As such, this may not be the most accurate.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;fenreese.github.io&#x2F;posts&#x2F;lfm-analysis&#x2F;worldmap.png&quot; alt=&quot;A map of the world, with countries coloured by how many listens I have of artists from the country.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It definitely shows that I am a big fan of Western pop, K-pop, and Japanese EDM. There were some things that surprised me though. I&#x27;m surprised I listen to a decent amount of Australian, Spanish, and French musicians. I also, for some reason, have a surprising amount of listens to Russian musicians.&lt;&#x2F;p&gt;
+&lt;p&gt;The scale I used may not be the most conventional, but that&#x27;s mainly because the data is too extreme (only around 5 countries had so many listens, the rest had less than 5000).&lt;&#x2F;p&gt;
+&lt;p&gt;This chart was inspired by &lt;a href=&quot;https:&#x2F;&#x2F;mold.github.io&#x2F;explr&#x2F;?username=emperte&quot;&gt;Explr.fm&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;top-genres-tags&quot;&gt;Top Genres&#x2F;Tags&lt;&#x2F;h2&gt;
+&lt;p&gt;Some notes:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Last.fm has a public API, but there is a limit of &lt;a href=&quot;https:&#x2F;&#x2F;www.last.fm&#x2F;api&#x2F;tos&quot;&gt;100mb per API token, as shown in the TOS, section 4.3.4&lt;&#x2F;a&gt;. I was afraid I would reach that limit knowing I have around 13k unique artist&#x2F;song combinations, so I had to take shortcuts and get the top genre of an artist instead of a song. This is also why I didn&#x27;t want to re-do this process, even though there are a few problems with the data detailed in the next point.&lt;&#x2F;li&gt;
+&lt;li&gt;As I was gathering the data for this, I realized that last.fm doesn&#x27;t have a &quot;genre&quot;, but more a &quot;top tag&quot;. This threw me off a little - the top tags for some artists are very weird (example at the time: KAYTRANADA&#x27;s top tag is &quot;seen live&quot; when I got the top tags; this messed up my info because now his top tag is &quot;electronic&quot;).
+&lt;ul&gt;
+&lt;li&gt;There is also no consistency with tags on Last.fm; there is a &lt;code&gt;Kpop&lt;&#x2F;code&gt; and a &lt;code&gt;k-pop&lt;&#x2F;code&gt; tag that describes the same genre.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;The sum of all scrobbles with artist tags is ~68,000, and I don&#x27;t know why, because with how I coded this, the sum should be ~95,000.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;fenreese.github.io&#x2F;posts&#x2F;lfm-analysis&#x2F;tags.png&quot; alt=&quot;A pie chart with percentages of the most listened to tags from last.fm.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Wow, I listen to a lot of K-pop groups and soloists (and this probably isn&#x27;t all of it because of the tag consistencies). I&#x27;m assuming the hip-hop comes from all the Tyler, the Creator, Kendrick Lamar, and Mac Miller I listened to over the years.&lt;&#x2F;p&gt;
+&lt;p&gt;I think there&#x27;s probably an overlap with some of these tags - I mentioned I listened to a lot of Japanese EDM, and &quot;japanese&quot; and &quot;electronic&quot; are two different tags. I also find it amusing how, even though Doja Cat is my #1 artist, (western) pop is only around 7% of the music I listen to.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;listening-activity-by-time&quot;&gt;Listening Activity By Time&lt;&#x2F;h2&gt;
+&lt;p&gt;I have no concept of time, so my hypothesis is that I listen to music most when I&#x27;m most awake.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;fenreese.github.io&#x2F;posts&#x2F;lfm-analysis&#x2F;timechart.png&quot; alt=&quot;A circular bar graph, with each bar representing an hour of the day and its height representing the average amount of song scrobbles per hour.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;From my all-time stats, I tend to listen to music often from 11:00am to 10:00pm, and not so much when I&#x27;m asleep (from around 1:00am to 8:00am). This makes sense, as I tend to be productive during these hours. I&#x27;m shocked that I listened to the most music at 12:00pm though, as I would assume I eat lunch during that time.&lt;&#x2F;p&gt;
+&lt;p&gt;This chart was inspired by Last.fm&#x27;s own &quot;Listening Clock&quot; graph (which I am no longer able to show as it&#x27;s a Last.fm Pro feature and I am no longer subscribed to it), which is probably more representative of my work schedule lately. It shows I tend to listen to music in the late afternoon&#x2F;evening, which makes sense because lately I&#x27;ve been waking up at 10:00am, only to not do schoolwork until 2:00pm, then stop at 7:00pm.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;song-tag-scatterplot&quot;&gt;Song Tag Scatterplot&lt;&#x2F;h2&gt;
+&lt;p&gt;The last thing I wanted to know was if I could have a finer breakdown of what music I listened to over the years. For the sake of having readable colours for such a big plot, I had to reduce the number of genres from 14 to 10. All of the caveats from the prior &quot;tag&quot; chart also apply to this one.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;fenreese.github.io&#x2F;posts&#x2F;lfm-analysis&#x2F;scattertimeplot.png&quot; alt=&quot;A scatterplot with the x-axis as day&#x2F;month of the year and y-axis as hour of day. Each dot on the scatterplot represents the genre of the song I listened to at that moment.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;*Turns out what I said in my introduction wasn&#x27;t true after all. There are some gaps in the plot from what I assume is no music activity.&lt;&#x2F;p&gt;
+&lt;p&gt;You can see that I didn&#x27;t really ramp up with listening to music until late 2019, in which I decided to scrobble a lot until mid-2022. Funnily enough, it looks like my big streak of music listening starts with a dense period in late 2019, becomes less dense in between (but still more so compared to 2017 and 2023), then ends with a very dense period in mid-2022.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a streak of orange in late 2019, probably based on a streak I had of listening to Japanese EDM. Additionally, If I&#x27;m correct, the period between the end of 2021 and the beginning of 2022 has me scrobbling a mix of different genres (presumably, to get over my ex breaking up with me). It&#x27;s funny to me that I see a lot of green around the time I listened to nothing but Doja Cat (mid-2022).&lt;&#x2F;p&gt;
+&lt;p&gt;There is one caveat with having only 10 visible genres; it doesn&#x27;t show my current synthpop phase. Lately, I&#x27;ve been listening to a lot of &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Magdalena_Bay_(band)&quot;&gt;Magdalena Bay&lt;&#x2F;a&gt;, but you wouldn&#x27;t know because synthpop is one of the &quot;other&quot; tags. It also doesn&#x27;t help with the one day I left my Spotify on playing Italian death metal band &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Fleshgod_Apocalypse&quot;&gt;Fleshgod Apocalypse&lt;&#x2F;a&gt; at the end of 2020.&lt;&#x2F;p&gt;
+&lt;p&gt;This scatterplot was inspired by &lt;a href=&quot;https:&#x2F;&#x2F;scatterfm.markhansen.co.nz&#x2F;graph.html#&#x2F;user&#x2F;emperte&quot;&gt;Scatter.FM&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;I tend to go through phases of listening to artists a lot for a period of time, and then never listening to them again.&lt;&#x2F;li&gt;
+&lt;li&gt;I slowly started listening to more music starting in late 2019 and ending in mid-2022. I listened to the least music in 2023.&lt;&#x2F;li&gt;
+&lt;li&gt;I listen to a lot of American pop, Korean pop, and Japanese EDM.&lt;&#x2F;li&gt;
+&lt;li&gt;I listen to music the most during the afternoon and early evening.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Self-teaching University Courses</title>
+        <published>2023-02-12T00:00:00+00:00</published>
+        <updated>2023-02-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://fenreese.github.io/posts/self-teaching/"/>
+        <id>https://fenreese.github.io/posts/self-teaching/</id>
+        
+        <content type="html" xml:base="https://fenreese.github.io/posts/self-teaching/">&lt;p&gt;I&#x27;ve had my fair share of courses with great professors and not-so-great ones, and somehow I find the courses where I don&#x27;t learn from the profs and TAs as much the most fun - I get to find resources that help me learn the same things I&#x27;m paying $4000* a semester for.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;adapting-overcoming-and-improvising&quot;&gt;Adapting, overcoming, and improvising&lt;&#x2F;h1&gt;
+&lt;p&gt;I&#x27;ve done this in my first and second year; back when I attended the &lt;a href=&quot;https:&#x2F;&#x2F;www.utoronto.ca&#x2F;&quot;&gt;University of Toronto&lt;&#x2F;a&gt;, I taught myself the entirety of &lt;em&gt;Calculus I&lt;&#x2F;em&gt; and &lt;em&gt;Introduction to Proofs&lt;&#x2F;em&gt;. &lt;del&gt;One of those courses I did nothing but the final and ended up getting an A in, the other I barely passed with a C. We don&#x27;t talk about the latter class.&lt;&#x2F;del&gt; I&#x27;ve taught myself the entirety of &lt;em&gt;Linear Algebra&lt;&#x2F;em&gt; and &lt;em&gt;Scientific Data Analysis&lt;&#x2F;em&gt; &lt;del&gt;i did not watch any of the video lectures i&#x27;m so sorry mariana&lt;&#x2F;del&gt;. I was able to get an A in &lt;em&gt;Algorithm Design and Analysis&lt;&#x2F;em&gt; from watching all of &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;playlist?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&quot;&gt;Abdul Bari&lt;&#x2F;a&gt;&#x27;s Algorithms playlist on YouTube. Two of the courses I&#x27;m taking at this very moment, &lt;em&gt;Computer Graphics&lt;&#x2F;em&gt; and &lt;em&gt;Machine Learning&lt;&#x2F;em&gt;, have, again, due to how ineffective the medium is, made me seek other resources to catch up on the content.&lt;&#x2F;p&gt;
+&lt;p&gt;I don&#x27;t really blame the professors all that much though. Some profs go on off-topic tangents, some profs teach in formats that don&#x27;t work with me, some profs just read off the slides with no opportunities for participation and call it a day. In my 3&#x2F;4 years of being in higher education I&#x27;ve gotten to learn what works for me, and that&#x27;s:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;a mostly readable format&lt;&#x2F;li&gt;
+&lt;li&gt;where, if there are slides, the spoken part of the lectures reinforce&#x2F;clarify what&#x27;s in the slides (and it&#x27;s not just a regurgitation)&lt;&#x2F;li&gt;
+&lt;li&gt;more interactive examples of lecture content, if the content allows for it&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Some profs aren&#x27;t able to do that. I can&#x27;t really do much about it, and I want to learn everything the course wants me to learn, so I have to result to finding alternative sources that teach in about 30 minutes what some profs fail to teach in an hour and 30.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-am-i-still-in-school-if-some-profs-are-ineffective&quot;&gt;Why am I still in school if some profs are ineffective?&lt;&#x2F;h2&gt;
+&lt;p&gt;It&#x27;s honestly because I have no idea what I&#x27;m doing. I find that school gives me a sense of structure and routine in life, and high school hasn&#x27;t given me enough resources or time to figure things out. I&#x27;ve tried a retail job, and it isn&#x27;t for me as much as people loved me in it. I&#x27;ve challenged myself to get a masters degree in CS, because why not? I like challenges. I&#x27;ve also found a very great support system that I don&#x27;t think I would have found otherwise if it wasn&#x27;t for me being in university (examples: &lt;a href=&quot;https:&#x2F;&#x2F;mlh.io&#x2F;&quot;&gt;Major League Hacking&lt;&#x2F;a&gt; offering a multitude of hackathons and events, or even the profs&#x2F;upper years that have been there and done that giving me tips on how to do my best).&lt;&#x2F;p&gt;
+&lt;p&gt;Also, I believe having a CS degree (or a degree in general) shows employers, and yourself, that you were dedicated to 4 or more years of learning how to find solutions and methods that work for you. In the case of self-teaching, it&#x27;s finding out how I learn and working with it. Yeah, if I have to learn things myself it&#x27;s a big waste of money, but the university experience is more to me about the social aspect - I would not have been able to build such a network if I wasn&#x27;t in university.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;del&gt;Also money is horrible and I don&#x27;t want to waste it failing courses. I also cannot give myself the discipline to be dedicated to learning things, so I plan my courses around forcing myself to learn what&#x27;s interesting to me. Forced learning.&lt;&#x2F;del&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;the-struggle-of-finding-resources&quot;&gt;The struggle of finding resources&lt;&#x2F;h1&gt;
+&lt;p&gt;The process is a hit or miss, and it either takes an entire semester or a few days to be able to find ways to meet a course&#x27;s learning objectives in a more accessible way for me.&lt;&#x2F;p&gt;
+&lt;p&gt;Sometimes getting external resources is hard, though: the &quot;textbook&quot; given to me for a course called &lt;em&gt;Software Design and Analysis&lt;&#x2F;em&gt; (which is basically &lt;em&gt;How To Make UMLs: The Course&lt;&#x2F;em&gt;) was a poorly formatted PDF of a website, and Googling any resources for that took me to sites and YouTube channels for UML creation startups (I am too broke to pay for anything past a cheap&#x2F;free trial). I don&#x27;t know how I got an A on that, but somehow I was able to take away that this course is useful for at least having a basis for a software system from absolutely nothing.&lt;&#x2F;p&gt;
+&lt;p&gt;(This, however, could have been fixed if I wasn&#x27;t super depressed at the time I took the course, and also Googled &quot;UML diagram book PDF&quot; or something. &lt;a href=&quot;https:&#x2F;&#x2F;modeling-languages.com&#x2F;list-uml-books&#x2F;&quot;&gt;See? The first result looks promising.&lt;&#x2F;a&gt;)&lt;&#x2F;p&gt;
+&lt;p&gt;Other times, though, finding good YouTube playlists and tutorials is pretty simple. A lot of upper year students have lists of resources and YouTube playlists they&#x27;ve used to get through courses, and they&#x27;re more often than not pinned on the corresponding course&#x27;s channel on a Discord server for my specific program. Even professors from my school have retweeted links to e-books that supplement the content they teach (this may be a hit or miss, because retweets are not exactly endorsements, but I have only had one instance of this and it looked credible to me).&lt;&#x2F;p&gt;
+&lt;p&gt;My favourite resource is a book a friend who doesn&#x27;t even live in the same country recommended me for &lt;em&gt;Introduction to Proofs&lt;&#x2F;em&gt;&#x2F;&lt;em&gt;Discrete Math&lt;&#x2F;em&gt;: &lt;a href=&quot;https:&#x2F;&#x2F;www.people.vcu.edu&#x2F;~rhammack&#x2F;BookOfProof&#x2F;&quot;&gt;The Book of Proof&lt;&#x2F;a&gt;, an open source introduction to proving mathematical theorems. It was the first resource that shaped how I think about my degree in computer science - it&#x27;s just proof that I&#x27;ve been dedicated to problem solving of all types for 4 or more years.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;all-useful-resources-so-far&quot;&gt;All useful resources so far&lt;&#x2F;h1&gt;
+&lt;p&gt;For at least the two courses I&#x27;m taking right now that &lt;em&gt;encourage&lt;&#x2F;em&gt; me to self-teach, here&#x27;s what I&#x27;m currently using.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;graphics&quot;&gt;Graphics&lt;&#x2F;h2&gt;
+&lt;p&gt;It&#x27;s an OpenGL course, woo! There are too many resources on older versions of it, so here&#x27;s a list of 3.3+ resources. (Thank you, &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;IronFistCA&quot;&gt;IronFist&lt;&#x2F;a&gt;!)&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Graphics Theory&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;playlist?list=PL_w_qWAQZtAZhtzPI5pkAtcUVgmzdAP8g&quot;&gt;UC Davis Computer Graphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.opengl-tutorial.org&#x2F;&quot;&gt;OpenGL Tutorial&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&#x2F;&quot;&gt;Learn OpenGL&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;youtu.be&#x2F;W3gAzLwfIP0&quot;&gt;The Cherno&#x27;s OpenGL playlist (YouTube)&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;machine-learning&quot;&gt;Machine Learning&lt;&#x2F;h2&gt;
+&lt;p&gt;In this course, I believe I&#x27;m focusing on PyTorch. I wouldn&#x27;t know exactly though, I&#x27;m too lazy to attend the lectures.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Overall&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;d2l.ai&#x2F;&quot;&gt;Dive into Deep Learning&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Theory&#x2F;Math&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mml-book.github.io&#x2F;&quot;&gt;Mathematics for Machine Learning&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;last-words&quot;&gt;Last words&lt;&#x2F;h1&gt;
+&lt;p&gt;Maybe I should actually use the feedback form my university offers at the end of each semester and give real, constructive criticism &lt;del&gt;(and not just &quot;i think you marked me harsh even though i have never interacted with you in my life and you&#x27;re also a horrible TA i&#x27;m going to regurgitate your words with no comprehension of them whatsoever&quot;)&lt;&#x2F;del&gt;. Probably &quot;hey, this is from my own personal experience, but do you think you can be more interactive in this way so it&#x27;s easier for me to pay attention in lectures? It might help a lot next time.&quot; It may not make the profs change their style right away, but it does give them food for thought to be more effective to those who learn and understand differently in the future.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, my point of view has been highly influenced by one of my buddy Xetera&#x27;s blog posts, specifically, the one about &lt;a href=&quot;https:&#x2F;&#x2F;xetera.dev&#x2F;why-does-school-suck-so-much&#x2F;&quot;&gt;why school sucks so much.&lt;&#x2F;a&gt; I&#x27;m aware Xetera&#x27;s biased from his experiences, and I&#x27;m biased from my experiences, but this article helped me realize that there are different ways to get to the same destination.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
