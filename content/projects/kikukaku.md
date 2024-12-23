@@ -1,7 +1,7 @@
 +++
 title = "KikuKaku"
 description = "HearWrite in Japanese. A learning tool for non-English handwriting in VR!"
-weight = 1
+weight = 2
 
 [extra]
 local_image = "/projects/kikukaku.jpg"
@@ -16,6 +16,4 @@ I'm particularly proud of the implementation of the writing board/canvas in VR -
 
 The character recognition was a simple multilayer perceptron machine learning model, which is pretty much converting an image into pixels and numbers, then having the computer learn what combinations of pixels are associated with which Japanese hiragana character in order to predict them. The model is 99% accurate in its predictions, which shocked even me. It was implemented in Tensorflow with Keras, and deployed as a Flask API. 
 
-Here is [a video](https://youtu.be/ENDjb0ghphA) of some gameplay.
-
-As of Summer 2024, I'm still working on this project. I plan on conducting user studies to see how effective learning handwriting in VR is compared to just pencil and paper, and I hope to publish a paper on it in the future!
+Here is [a video](https://youtu.be/ENDjb0ghphA) of some gameplay. Also see: the [source code](https://github.com/vialab/JPHandwriting).

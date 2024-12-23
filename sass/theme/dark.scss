@@ -1,0 +1,24 @@
+@import "../../themes/apollo/sass/theme/dark.scss";
+
+$bg-0: #1e1e2e;
+
+// Dark theme needs a bigger contrast compared to the white theme.
+$bg-1: #313244;
+$bg-2: #45475a;
+
+$text-0: #cdd6f4;
+$text-1: #bac2de;
+
+:root.dark {
+  --text-0: #{$text-0};
+  --text-1: #{$text-1};
+
+  --bg-0: #{$bg-0};
+  --bg-1: #{$bg-1};
+  --bg-2: #{$bg-2};
+
+  --border-color: var(--bg-2);
+
+  --primary-color: #89b4fa;
+  --hover-color: #585b70;
+}

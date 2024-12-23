@@ -1,6 +1,9 @@
 +++
 title = "A Tour of My Listening History"
 date = "2024-04-01"
+
+[taxonomies]
+tags = ["school", "project"]
 +++
 
 # Disclaimer

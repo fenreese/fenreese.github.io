@@ -14,23 +14,26 @@ title = "renys.dev"
 generate_feeds = true
 minify_html = true
 
+taxonomies = [{ name = "tags" }]
+
 [markdown]
 highlight_code = true
 highlight_theme = "ayu-dark"
 
 [extra]
-toc = true
+toc = false
 use_cdn = false
 favicon = "/icon/favicon.png"
-theme = "auto"  
+theme = "toggle"  
 stylesheets = [ "colours.css" ]    
 mathjax = true
 mathjax_dollar_inline_enable = true
 
 menu = [
-    { name = "/posts", url = "/posts", weight = 1 },
-    { name = "/projects", url = "/projects", weight = 2 },
-    { name = "/about", url = "/about", weight = 3 },
+    { name = "about", url = "/about", weight = 1 },
+    { name = "writing", url = "/posts", weight = 2 },
+    { name = "tags", url = "/tags", weight = 2},
+    { name = "projects", url = "/projects", weight = 3 },
 ]
 
 socials = [
@@ -41,6 +44,6 @@ socials = [
 custom_css = []
 
 [extra.analytics]
-enabled = true
+enabled = false
 goatcounter_user = "your_user"
 goatcounter_host = "example.com"    # default= goatcounter.com

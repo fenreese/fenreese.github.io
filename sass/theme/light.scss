@@ -1,0 +1,22 @@
+@import "../../themes/apollo/sass/theme/light.scss";
+
+$bg-0: #eff1f5;
+$bg-1: #dce0e8;
+$bg-2: #e6e9ef;
+
+$text-0: #4c4f69;
+$text-1: #5c5f77;
+
+:root.light {
+  --text-0: #{$text-0};
+  --text-1: #{$text-1};
+
+  --bg-0: #{$bg-0};
+  --bg-1: #{$bg-1};
+  --bg-2: #{$bg-2};
+
+  --border-color: var(--bg-2);
+
+  --primary-color: #1e66f5;
+  --hover-color: #bcc0cc;
+}

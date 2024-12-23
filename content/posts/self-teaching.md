@@ -1,6 +1,9 @@
 +++
 title = "Self-teaching University Courses"
 date = "2023-02-12"
+
+[taxonomies]
+tags = ["school", "rant"]
 +++
 
 I've had my fair share of courses with great professors and not-so-great ones, and somehow I find the courses where I don't learn from the profs and TAs as much the most fun - I get to find resources that help me learn the same things I'm paying $4000\* a semester for.
